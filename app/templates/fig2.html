@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel='stylesheet' href="{{url_for('static', filename='css/styles.css')}}">
+    <style>
+      .highlighted{
+        stroke-width: 4px;
+
+      }
+                        p,h1,h5{
+        text-align: center;
+      }
+    </style>
+    <script src="{{url_for('static', filename='js/figure2.js')}}"></script>
+    <div id='wrapper'>
+      <hr style='width:100%'>
+      <h1>USA School Scores 2005-2015</h1>
+      &nbsp;Year:&nbsp;
+      <input id='year-input' width='50' type='number' value='2005' min='2005' max='2015' onchange='drawMap();'/>
+      &nbsp;Attribute&nbsp;
+      <select id='attribute-select' onchange='drawMap();'>
+        <option value='Total.Math'>Total Math Scores</option>
+        <option value='Total.Verbal'>Total Verbal Scores</option>
+        <option value='Family Income.Between 20-40k.Math'>Math Scores from Families with Income 20-40k</option> 
+        <option value='Family Income.More than 100k.Math'>Math Scores from Families with Income More than 100k</option>
+      </select>
+      &nbsp;Color Scale&nbsp;
+      <select id='color-scale-select' onchange='drawMap();'>
+        <option value='interpolateViridis'>interpolateViridis</option>
+        <option value='interpolateWarm'>interpolateWarm</option>
+        <option value='interpolateCividis'>interpolateCividis</option>
+         <option value='interpolateCubehelixDefault'>interpolateCubehelixDefault</option>
+      </select>
+      <br/>
+      <svg id='map'></svg>
+      <svg id='linechart'></svg>
+      Source: <a href='https://corgis-edu.github.io/corgis/csv/' target='_blank'>CORGIS: The Collection of Really Great, Interesting, Situated Datasets
+      </a>
+      <div id='tooltip'></div>
+    </div>
+{% endblock %}

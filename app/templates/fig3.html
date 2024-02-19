@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel='stylesheet' href="{{url_for('static', filename='css/styles.css')}}">
+    <style>
+      p,h1,h5{
+        text-align: center;
+      }
+      svg {
+                width: 1000px;
+                height: 800px;
+                        background-color: #92A8D1;
+        display: block;
+        margin: auto;
+        margin-right: 10px;
+            }
+      .info_div{
+        margin: auto;
+        display: block;
+        justify-content: center;
+      }
+      .highlighted{
+
+        fill: lightskyblue;
+
+      }
+    .container {
+   
+    align-items: center;
+  }
+    </style>
+    <div>
+      <h1>Brave Dogs in Soviet Space</h1>
+      <p id="writeup">
+        This data viz shows the altitudes and the status of the dogs after flight for each of the soviet space dog launches.<br>
+        Click on a point to recieve all the information about that flight or click on the earth to return to default view.<br>
+        Red circles indicate at least one canine casualty on the flight.<br>
+        Height of each point from the earth shows relative altitude.
+
+      </p>
+    </div>
+    <div class="container">
+                          <div id='info_div'>
+            <p id="date"></p>
+            <p id="deaths"></p>
+            <p id="dogs"></p>
+            <p id="notes"></p>
+            <p id="result"></p>
+            <p id="rocket"></p>
+            <p id="altitude"></p>
+          </div>
+          <svg id='map'></svg >
+
+        </div>
+        <div>
+          <p id="source"><a href="https://spin.atomicobject.com/2015/06/12/objects-around-svg-circle-d3-js/" >https://spin.atomicobject.com/2015/06/12/objects-around-svg-circle-d3-js/</a>
+          <p id="changes">I used this as a jumping point for my project. I learned how to translate some points about an center so that is what I do with all the labels and points.</p>
+      <script src="{{url_for('static', filename='js/figure3.js')}}"></script>
+    </div>
+{% endblock %}
